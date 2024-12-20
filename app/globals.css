@@ -19,3 +19,29 @@ body {
   background: var(--background);
   font-family: Arial, Helvetica, sans-serif;
 }
+
+/* Sidebar */
+.sidebar {
+  width: 200px; /* Fixed width */
+  height: 100vh; /* Full height */
+  position: fixed;
+}
+
+/* Main content area */
+.main-content {
+  display: flex;
+  justify-content: space-between;
+  padding-left: 200px; /* Make space for the sidebar */
+  width: 100%;
+}
+
+.main-cntn{
+  width: 100%;
+}
+
+.menu-form-wrapper {
+  display: flex;
+  flex: 1;
+  justify-content: center;
+  align-items: center;
+}
