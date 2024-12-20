@@ -6,17 +6,17 @@ export default function Sidebar() {
           <ul className="space-y-2">
             <li className="text-sm text-gray-300">Systems</li>
             <li>
-              <button className="w-full text-left text-gray-200 hover:text-white py-2">
+              <button className="w-full px-2 text-left text-gray-200 hover:text-white py-2">
                 <span>System Code</span>
               </button>
             </li>
             <li>
-              <button className="w-full text-left text-gray-200 hover:text-white py-2">
+              <button className="w-full px-2 text-left text-gray-200 hover:text-white py-2">
                 <span>Properties</span>
               </button>
             </li>
             <li>
-              <button className="w-full text-left bg-green-600 py-2 rounded">
+              <button className="w-full px-2 text-left bg-green-600 py-2 rounded">
                 <span>Menus</span>
               </button>
             </li>
