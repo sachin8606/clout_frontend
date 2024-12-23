@@ -40,7 +40,7 @@ export default function MenuForm({ menuItem,isSuccess }) {
 
     try {
       // Send data to the backend API to save menu item
-      const response = await axios.post('http://localhost:8000/menu', {
+      const response = await axios.post(process.env.NEXT_PUBLIC_API_URL, {
         name,
         depth: depthInt,
         parentId,
