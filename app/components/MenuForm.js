@@ -2,7 +2,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 
-export default function MenuForm({ menuItem }) {
+export default function MenuForm({ menuItem,isSuccess }) {
   // Initialize state for the form fields
   const [name, setName] = useState('');
   const [depth, setDepth] = useState(0);
@@ -16,8 +16,9 @@ export default function MenuForm({ menuItem }) {
       console.log(menuItem)
       setName(menuItem.name || '');
       setDepth(menuItem.depth || 0);
-      setParentId(menuItem.parentId || '');
+      setParentId(menuItem.id || '');
     }
+    isSuccess(false)
   }, [menuItem]);
 
   // Handle form input changes
@@ -44,7 +45,7 @@ export default function MenuForm({ menuItem }) {
         depth: depthInt,
         parentId,
       });
-
+      isSuccess(true)
       console.log('Menu saved successfully:', response.data);
     } catch (err) {
       setError('Failed to save menu. Please try again.');
@@ -84,7 +85,7 @@ export default function MenuForm({ menuItem }) {
           <input
             type="text"
             name="parentId"
-            value={parentId}
+            value={menuItem ? menuItem.id : 'Loading...'}
             onChange={handleChange}
             className="w-full p-2 border rounded"
           />
@@ -95,7 +96,6 @@ export default function MenuForm({ menuItem }) {
           <input
             type="text"
             name="name"
-            value={name}
             onChange={handleChange}
             className="w-full p-2 border rounded"
           />

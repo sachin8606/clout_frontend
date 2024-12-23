@@ -81,13 +81,21 @@ const MenuItem = ({ menu,onMenuItemClick, level = 0 }) => {
   );
 };
 
-export default function MenuTree({onMenuItemClick}) {
+export default function MenuTree({onMenuItemClick,isSuccess}) {
   const dispatch = useDispatch();
   const { menus, loading, error } = useSelector((state) => state.menu);
 
   useEffect(() => {
     dispatch(getMenus());
   }, [dispatch]);
+
+  useEffect(() => {
+    if(isSuccess){
+      dispatch(getMenus());
+    }
+  }, [isSuccess]);
+
+
 
   if (loading) return <div>Loading...</div>;
   if (error) return <div>Error: {error}</div>;

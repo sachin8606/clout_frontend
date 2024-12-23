@@ -14,9 +14,10 @@ export default function Home() {
     price: '',
   });
 
+  const [isSuccess, setIsSuccess] = useState(false);
+
   const handleMenuItemClick = (itemData) => {
     // Set the selected item data to the state
-    console.log(itemData)
     setSelectedMenuItem(itemData);
   };
   return (
@@ -29,12 +30,12 @@ export default function Home() {
         <main className="flex-1 flex gap-8 p-8 bg-white">
           {/* Left: Menu Hierarchy (taking 50% of remaining width) */}
           <div className="w-1/2">
-            <MenuTree onMenuItemClick={handleMenuItemClick}/>
+            <MenuTree onMenuItemClick={handleMenuItemClick} isSuccess = {isSuccess}/>
           </div>
 
           {/* Right: Menu Form (vertically centered, taking 50% of remaining width) */}
           <div className="w-1/2 flex items-center justify-center">
-            <MenuForm menuItem={selectedMenuItem}/>
+            <MenuForm menuItem={selectedMenuItem} isSuccess={setIsSuccess}/>
           </div>
         </main>
       </div>
